@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :lists
+
   # get 'pages/index'
 
   root 'pages#index'
