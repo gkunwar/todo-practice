@@ -1,4 +1,6 @@
 class ListsController < ApplicationController
+
+  # before_action :authenticate_user!, except: [:show, :list]
   def index
     @lists = List.all
   end
@@ -11,6 +13,11 @@ class ListsController < ApplicationController
   end
 
   def edit
+  end
+
+  def complete
+    @list = List.find(params[:id])
+    @list.update_attributes(completed: true)
   end
 
   def create
@@ -26,6 +33,9 @@ class ListsController < ApplicationController
   end
 
   def destroy
+    @list = List.find(params[:id])
+    @list.destroy
+    redirect_to lists_path
   end
 
   private
