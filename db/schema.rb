@@ -11,13 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160427122052) do
+ActiveRecord::Schema.define(version: 20160505122559) do
 
   create_table "lists", force: :cascade do |t|
     t.string   "title",      limit: 255
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
     t.boolean  "completed",              default: false
+    t.string   "avatar",     limit: 255
   end
 
   create_table "users", force: :cascade do |t|
