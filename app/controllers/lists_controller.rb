@@ -2,7 +2,7 @@ class ListsController < ApplicationController
 
   # before_action :authenticate_user!, except: [:show, :list]
   def index
-    @lists = List.all
+    @lists = List.all.page( params[:page])
   end
 
   def show
