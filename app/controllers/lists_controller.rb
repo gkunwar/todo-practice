@@ -12,6 +12,12 @@ class ListsController < ApplicationController
     @list = List.new
   end
 
+  def search
+    @text = params[:text]
+    @lists = List.where("title LIKE ?", "%#{@text}%").page( params[:page])
+    render 'index'
+  end
+
   def edit
   end
 
